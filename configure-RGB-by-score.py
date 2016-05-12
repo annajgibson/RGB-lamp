@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 Spyder Editor
-Author: R Winch
+Author: A Gibson
 Date: April 2016
 Write RGB to Edison Pins
 
@@ -12,14 +12,10 @@ import mraa
 import numpy
 
 
-# define pin numbers
-redPotPin = 0
-greenPotPin = 1
-bluePotPin = 2
+# define pin numbers (there will be three LEDs with each R,G,B wired to same pin)
 redLedPin = 5
 greenLedPin = 6
 blueLedPin = 9
-
 
 
 # define leds as pwm
