@@ -53,8 +53,11 @@ while True:
         greenLed = 0.3
         blueLed = 0.3
         #no sentiment read
-    else:
-        pass
-       
+        #no sentiment read
+    elif  0 <= value <= 1:
+        print ("bad value")
+        redLed = 0
+        greenLed = 0
+        blueLed = 0
 #how to write to LED??
 

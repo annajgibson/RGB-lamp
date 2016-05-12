@@ -29,8 +29,8 @@ while True:
     if value >= 0.6 and value <= 1:
         print("good sentiment") 
         #no sentiment read
-    elif value < 0 or value >1: 
-        print ("bad value, exiting...")
+    elif  0 <= value <= 1:
+        print ("bad value, exiting")
         break
         
 
