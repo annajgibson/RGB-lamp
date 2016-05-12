@@ -11,7 +11,6 @@ Write RGB to Edison Pins
 import mraa
 import numpy as np
 
-
 # define pin numbers (there will be three LEDs with each R,G,B wired to same pin)
 redLedPin = 5
 greenLedPin = 6
@@ -26,7 +25,6 @@ blueLed = mraa.Pwm(blueLedPin)
 redLed.enable(True)
 greenLed.enable(True)
 blueLed.enable(True)
-
 
 #start loop
 #read in csv file
