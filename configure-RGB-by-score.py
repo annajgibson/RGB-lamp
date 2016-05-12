@@ -43,20 +43,18 @@ while True:
         greenLed = 0.3
         blueLed = 0.3
     #neutral sentiment
-    if value >= 0.3 < 0.6:
+    if if value >= 0.3 and value < 0.6:
         redLed = 0.3
         greenLed = 0.3
         blueLed = 0.3  
     #good sentiment
-    if value >= 0.6 <= 1:
+    if value >= 0.6 and value <= 1:
         redLed = 0.3
         greenLed = 0.3
         blueLed = 0.3
         #no sentiment read
     else:
-        redLed = 0
-        greenLed = 0
-        blueLed = 0
+        pass
        
 #how to write to LED??
 
