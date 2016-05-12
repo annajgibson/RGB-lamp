@@ -9,14 +9,13 @@ Write RGB to Edison Pins
 
 #import mraa library for controlling pins
 import mraa
-import numpy
+import numpy as np
 
 
 # define pin numbers (there will be three LEDs with each R,G,B wired to same pin)
 redLedPin = 5
 greenLedPin = 6
 blueLedPin = 9
-
 
 # define leds as pwm
 redLed = mraa.Pwm(redLedPin)
@@ -29,30 +28,35 @@ greenLed.enable(True)
 blueLed.enable(True)
 
 
+#start loop
+#read in csv file
+#default data type = float
+while True:
+    value = np.loadtxt("C:\Users\Anna\Documents\GitHub\RGB-lamp\sentiment.txt")
+    #print sentiment value to console
+    print(value)   
+    
 #check for tweet sentiment value
+    #if bad sentiment
+    if value < 0.3:
+        redLed = 0.3
+        greenLed = 0.3
+        blueLed = 0.3
+    #neutral sentiment
+    if value >= 0.3 < 0.6:
+        redLed = 0.3
+        greenLed = 0.3
+        blueLed = 0.3  
+    #good sentiment
+    if value >= 0.6 <= 1:
+        redLed = 0.3
+        greenLed = 0.3
+        blueLed = 0.3
+        #no sentiment read
+    else:
+        redLed = 0
+        greenLed = 0
+        blueLed = 0
+       
+#how to write to LED??
 
-#loop through pins and assign RGB if
-
-
-# loop forever
-while 1:
-	# read from pots
-	redPotReading = redPot.readFloat()
-	greenPotReading = greenPot.readFloat()
-	bluePotReading = bluePot.readFloat()
-	
-	# prevent flickering when near off state
-	if redPotReading > 0.97:
-		redPotReading = 1
-	if greenPotReading > 0.9:
-		greenPotReading = 1
-	if bluePotReading > 0.98:
-		bluePotReading = 1	
-
-	# write to leds		
-	redLed.write(redPotReading)
-	greenLed.write(greenPotReading)
-	blueLed.write(bluePotReading)
-
-	# print current readings
-	print "Red: {: 0.2f} - Green {: 1.2f} - Blue {: 2.2f}".format(1 - redPotReading, 1 - greenPotReading, 1 - bluePotReading)
