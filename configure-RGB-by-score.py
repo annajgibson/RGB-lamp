@@ -37,25 +37,25 @@ while True:
 #check for tweet sentiment value
     #if bad sentiment
     if value < 0.3:
-        redLed = 0.3
-        greenLed = 0.3
-        blueLed = 0.3
+        redLed.write(0.3)
+        greenLed.write(0.3)
+        blueLed.write(0.3)
     #neutral sentiment
     if if value >= 0.3 and value < 0.6:
-        redLed = 0.3
-        greenLed = 0.3
-        blueLed = 0.3  
+        redLed.write(0.3)
+        greenLed.write(0.3)
+        blueLed.write(0.3)  
     #good sentiment
     if value >= 0.6 and value <= 1:
-        redLed = 0.3
-        greenLed = 0.3
-        blueLed = 0.3
+        redLed.write(0.3)
+        greenLed.write(0.3)
+        blueLed.write(0.3)
         #no sentiment read
         #no sentiment read
-    elif  0 <= value <= 1:
+    elif  value < 0  or value > 1:
         print ("bad value")
-        redLed = 0
-        greenLed = 0
-        blueLed = 0
-#how to write to LED??
+        redLed.write(0)
+        greenLed.write(0)
+        blueLed.write(0)
+
 

@@ -16,7 +16,7 @@ import numpy as np
 while True:
     value = np.loadtxt("C:\Users\Anna\Documents\GitHub\RGB-lamp\sentiment.txt")
     #print sentiment value to console
-    print(value)   
+    #print(value)   
     
 #check for tweet sentiment value
     #if bad sentiment
@@ -28,8 +28,8 @@ while True:
     #good sentiment
     if value >= 0.6 and value <= 1:
         print("good sentiment") 
-        #no sentiment read
-    elif  0 <= value <= 1:
+    #no sentiment read
+    elif value < 0  or value > 1:
         print ("bad value, exiting")
         break
         
