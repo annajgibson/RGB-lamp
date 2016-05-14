@@ -9,7 +9,6 @@ Write RGB to Edison Pins
 
 #import mraa library for controlling pins
 import mraa
-import numpy as np
 
 # define pin numbers (there will be three LEDs with each R,G,B wired to same pin)
 redLedPin = 5
@@ -30,30 +29,31 @@ blueLed.enable(True)
 #read in csv file
 #default data type = float
 while True:
-    value = np.loadtxt("C:\Users\Anna\Documents\GitHub\RGB-lamp\sentiment.txt")
+    f = open("sentiment.txt", 'r')
+    value = float(f.read())
     #print sentiment value to console
     print(value)   
     
 #check for tweet sentiment value
     #if bad sentiment
     if value < 0.3:
-        redLed.write(0.3)
-        greenLed.write(0.3)
-        blueLed.write(0.3)
+        redLed.write(0)
+        greenLed.write(1)
+        blueLed.write(1)
     #neutral sentiment
-    if value >= 0.3 and value < 0.6:
-        redLed.write(0.3)
-        greenLed.write(0.3)
-        blueLed.write(0.3)  
+    elif value >= 0.3 and value < 0.6:
+        redLed.write(1)
+        greenLed.write(0)
+        blueLed.write(1)  
     #good sentiment
-    if value >= 0.6 and value <= 1:
-        redLed.write(0.3)
-        greenLed.write(0.3)
-        blueLed.write(0.3)
+    elif value >= 0.6 and value <= 1:
+        redLed.write(1)
+        greenLed.write(1)
+        blueLed.write(0)
         #no sentiment read
         #no sentiment read
-    elif value < 0  or value > 1:
-        print ("bad value")
+    elif value < 0 or value > 1:
+        #print ("bad value")
         redLed.write(0)
         greenLed.write(0)
         blueLed.write(0)

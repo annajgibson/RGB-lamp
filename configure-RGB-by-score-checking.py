@@ -9,14 +9,15 @@ Write RGB to Edison Pins
 """
 
 #testing loop
-import numpy as np
 #start loop
 #read in csv file
 #default data type = float
 while True:
-    value = np.loadtxt("C:\Users\Anna\Documents\GitHub\RGB-lamp\sentiment.txt")
+    
+    f = open("sentiment.txt", 'r')
+    value = float(f.read())
     #print sentiment value to console
-    #print(value)   
+    print(value)   
     
 #check for tweet sentiment value
     #if bad sentiment
@@ -29,9 +30,9 @@ while True:
     if value >= 0.6 and value <= 1:
         print("good sentiment") 
     #no sentiment read
-    elif value < 0  or value > 1:
-        print ("bad value, exiting")
-        break
+    #elif value < 0  or value > 1:
+     #   print ("bad value, exiting")
+      #  break
         
 
 
